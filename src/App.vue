@@ -1,5 +1,9 @@
 <template>
   <header>
+    <!-- Title -->
+    <img src="./assets/RoyalCrestHyruleFamily.webp" alt="hyrule jobs">
+    <h1>Hyrule Jobs</h1>
+    <!-- Order buttons -->
     <div class="order">
       <button @click.prevent="handleClick('title')">order by title</button>
       <button @click.prevent="handleClick('salary')">order by salary</button>
@@ -68,17 +72,25 @@ export default defineComponent({
   header {
     text-align: center;
   }
+  header img {
+    width: 150px;
+    margin-top: 40px;
+  }
   header .order {
     margin-top: 20px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   button {
-    margin: 0 10px;
-    color: #1195c9;
-    border: 2px solid #1195c9;
-    background: #d5f0ff;
-    padding: 8px 16px;
+    color: #f7f3d7;
+    background: #17bf66;
+    padding: 10px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
+    text-transform: capitalize;
+    border: none;
   }
 </style>

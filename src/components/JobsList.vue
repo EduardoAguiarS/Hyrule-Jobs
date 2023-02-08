@@ -1,12 +1,19 @@
 <template>
   <div class="job-list">
-    Ordered by: {{ order }}
+    <p class="ordered">Ordered by: <span>{{ order }}</span></p>
     <ul>
       <li v-for="job in orderedJobs" :key="job.id">
         <!-- Title -->
-        <h2>{{ job.title }} in {{ job.location }}</h2>
+        <header>
+          <h2>{{ job.title }}</h2>
+          <p class="location">
+            <img src="https://objmap.zeldamods.org/icons/mapicon_dungeon.svg" alt="location">
+            {{ job.location }}
+          </p>
+        </header>
         <!-- Salary -->
         <div class="salary">
+          <img src="../assets/rupee.png" alt="rupee">
           <p>{{ job.salary }} rupees</p>
         </div>
         <!-- Description -->
@@ -52,26 +59,82 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.ordered {
+  color: #f7f3d762;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.ordered span {
+  color: #f7f3d7;
+  text-transform: capitalize;
+}
 .job-list {
   max-width: 960px;
   margin: 40px auto;
 }
+.location {
+  color: #f7f3d762;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
 .job-list ul {
   list-style: none;
   padding: 0;
+  height: 500px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.job-list ul::-webkit-scrollbar {
+  width: 10px;
+}
+.job-list ul::-webkit-scrollbar-track {
+  background: #12375800;
+}
+.job-list ul::-webkit-scrollbar-thumb {
+  background: #17bf66;
+  border-radius: 10px;
 }
 .job-list li {
-  background-color: #fff;
+  background-color: #123758;
   border-radius: 4px;
-  margin: 1rem 0;
   padding: 1rem;
+  color: #ebe9d9;
 }
-.job-list li h2 {
-  margin: 0 0 10px;
+.job-list li header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-transform: capitalize;
 }
+.job-list li header h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  color: #CD9A3c;
+}
+.job-list li header .location {
+  color: #2E93CC;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.job-list li header .location img {
+  width: 40px;
+  margin: 0;
+}
+
 .job-list li .salary {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .job-list li .salary p {
   margin: 10px 4px;
@@ -79,6 +142,9 @@ export default defineComponent({
   color: #17bf66;
 }
 .job-list li .salary img {
-  width: 30px;
+  width: 20px;
+}
+.job-list li .description {
+  font-size: 0.9rem;
 }
 </style>
