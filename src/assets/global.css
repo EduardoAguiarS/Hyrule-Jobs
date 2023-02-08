@@ -4,3 +4,12 @@ body, #app {
   font-family: 'Open Sans', sans-serif;
   background: #ece6d9;
 }
+
+@font-face {
+  font-family: Botw;
+  src: url('The\ Wild\ Breath\ of\ Zelda.otf') format('opentype');
+}
+
+h1 {
+  font-family: Botw;
+}
